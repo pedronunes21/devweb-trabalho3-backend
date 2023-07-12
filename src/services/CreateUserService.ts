@@ -30,7 +30,7 @@ export class CreateUserService {
         if (password.search(/[0-9]/) < 0) {
             return { status: 400, message: "A senha deve conter pelo menos 1 número." }
         }
-
+        console.log(password)
         const hashedPassword = await hash(password, 10)
 
         const user = userRepo.create({

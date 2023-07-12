@@ -21,7 +21,7 @@ export class LoginService {
             }
         }
 
-        const userWithPassword = await userRepo.createQueryBuilder().addSelect("User.password").getOne()
+        const userWithPassword = await userRepo.createQueryBuilder().addSelect("User.password").where({ email }).getOne()
 
         const passwordMatch = await compare(password, userWithPassword!.password)
 
